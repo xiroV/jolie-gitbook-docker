@@ -1,0 +1,7 @@
+{
+    "title": "foobar",
+    "plugins": [
+        "-highlight",
+        "highlight-jolie"
+    ]
+}
