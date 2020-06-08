@@ -16,4 +16,4 @@ Then run with
 docker run -p 8080:8080 -d jolie-docs
 ```
 
-The Gitbook should then be accessible on [localhost:8080](localhost:8080).
+The Gitbook should then be accessible on [localhost:8080](http://localhost:8080).
