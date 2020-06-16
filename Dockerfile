@@ -16,7 +16,7 @@ RUN apk update && \
 	apk add --update nodejs npm --no-cache
 RUN mkdir -p /home/nginx/jolie-docs
 WORKDIR /home/nginx/jolie-docs
-COPY Documentation/ ./
+COPY docs/ ./
 COPY gitbook/ ./
 RUN npm install -g gitbook-cli
 RUN npm install gitbook-plugin-highlight-jolie
