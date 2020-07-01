@@ -3,9 +3,6 @@
     "logo": "logo.png",
     "plugins": [
         "-highlight",
-        "highlight-jolie",
-        "theme-gestalt",
-        "-theme-default",
-        "styles-sass-fix"
+        "highlight-jolie"
     ]
 }
