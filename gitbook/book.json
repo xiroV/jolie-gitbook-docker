@@ -1,7 +1,11 @@
 {
     "title": "Jolie Documentation",
+    "logo": "logo.png",
     "plugins": [
         "-highlight",
-        "highlight-jolie"
+        "highlight-jolie",
+        "theme-gestalt",
+        "-theme-default",
+        "styles-sass-fix"
     ]
 }

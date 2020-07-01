@@ -20,6 +20,8 @@ COPY docs/ ./
 COPY gitbook/ ./
 RUN npm install -g gitbook-cli
 RUN npm install gitbook-plugin-highlight-jolie
+RUN npm install gitbook-plugin-styles-sass-fix
+RUN npm install gitbook-plugin-theme-gestalt
 RUN gitbook init && \
 	gitbook install && \
 	gitbook build
