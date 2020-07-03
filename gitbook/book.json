@@ -1,8 +1,29 @@
 {
     "title": "Jolie Documentation",
-    "logo": "logo.png",
     "plugins": [
         "-highlight",
-        "highlight-jolie"
-    ]
+        "highlight-jolie",
+        "logo",
+        "code",
+        "collapsible-chapters"
+    ],
+    "styles": {
+        "website": "styles/website.css"
+    },
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": false
+        },
+        "code": {
+            "copyButtons": true
+        },
+        "logo": {
+            "rootStyle": "text-align: center; padding: 10px; padding-bottom: 0;",
+            "logoStyle": "width: 100px;",
+            "titleStyle": "color: #000000; text-align: center; font-size: 22px;",
+            "logo": "/logo.png",
+            "title": "Jolie Documentation",
+            "url": "https://jolielang.gitbook.io/docs/"
+        }
+    }
 }

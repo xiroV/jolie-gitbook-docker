@@ -19,12 +19,14 @@ WORKDIR /home/nginx/jolie-docs
 COPY docs/ ./
 COPY gitbook/ ./
 RUN npm install -g gitbook-cli
+RUN npm install mv
 RUN npm install gitbook-plugin-highlight-jolie
-RUN npm install gitbook-plugin-styles-sass-fix
-RUN npm install gitbook-plugin-theme-gestalt
+RUN npm install gitbook-plugin-logo
+RUN npm install gitbook-plugin-code
+RUN npm install gitbook-plugin-collapsible-chapters
 RUN gitbook init && \
-	gitbook install && \
-	gitbook build
+    gitbook install && \
+    gitbook build
 ## Copy static webserver
 RUN chown -R nginx:nginx _book && \
     cp -r _book /usr/share/nginx/html/jolie-docs
