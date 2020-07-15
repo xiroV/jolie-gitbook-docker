@@ -36,7 +36,7 @@ interfaces: GreeterAPI                    // Publish GreeterAPI
 // Implementation (the behaviour)
 main
 {
-    /*
+        /*
     This statement receives a request for greet,
     runs the code in { ... }, and sends response
     back to the client.

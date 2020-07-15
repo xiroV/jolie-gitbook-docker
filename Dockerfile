@@ -22,7 +22,6 @@ RUN npm install -g gitbook-cli
 RUN npm install mv
 RUN npm install gitbook-plugin-highlight-jolie
 RUN npm install gitbook-plugin-logo
-RUN npm install gitbook-plugin-code
 RUN npm install gitbook-plugin-collapsible-chapters
 RUN gitbook init && \
     gitbook install && \

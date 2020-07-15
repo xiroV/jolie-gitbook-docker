@@ -4,7 +4,6 @@
         "-highlight",
         "highlight-jolie",
         "logo",
-        "code",
         "collapsible-chapters"
     ],
     "styles": {
@@ -13,9 +12,6 @@
     "pluginsConfig": {
         "theme-default": {
             "showLevel": false
-        },
-        "code": {
-            "copyButtons": true
         },
         "logo": {
             "rootStyle": "text-align: center; padding: 10px; padding-bottom: 0;",
