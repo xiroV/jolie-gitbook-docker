@@ -2,7 +2,7 @@
 
 Docker image with Gitbook using the [xiroV/gitbook-plugin-highlight-jolie](https://github.com/xiroV/gitbook-plugin-highlight-jolie) plugin, to support Jolie syntax highlighting.
 
-Place Markdown files in the `Documentation` directory.
+Place Markdown files in the `docs` directory.
 
 Build the image with
 
