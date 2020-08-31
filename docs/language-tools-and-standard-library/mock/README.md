@@ -8,7 +8,8 @@ Since in Jolie a service interface is fully defined, it is possible to automatic
 `joliemock` generates a mock service wich provides a fake implementation of all the operations exhibited within an inputPort.
 Usually, a developer just has only the interface of a target service, in this case it is sufficient to build an empty service with an inputPort where the target interface is declared.
 As an example let us consider the following service defined in the file named `example.ol`:
-```
+
+```jolie
 type TestRequest: void {
     field1: string 
     field2: int
@@ -42,14 +43,17 @@ main {
     nullProcess
 }
 ```
+
 In order to generate the correspondant mock service, the following command must be executed:
-```
+
+```text
 joliemock example.ol > mock_main.ol
 ```
 It is worth noting that the code of the mock is generated in the standard output thus it is necessary to redirect it into a file in order to save it. In the example above, the generated content is saved into the file `mock_main.ol`.
 
 The generated mock is:
-```
+
+```jolie
 type TestRequest:void {
   .field1[1,1]:string
   .field3[1,1]:void {
@@ -129,11 +133,13 @@ main {
 
 }
 ```
+
 The mock service can be immediately executed taking care to define the location of the inputPort which comes as `local`.
 
 ### joliemock parameters
 The command joliemock accepts three parameters.
-```
+
+```text
 joliemock <filename> [-port <portname>] [-depth <vector depth>]
 ```
 where:
