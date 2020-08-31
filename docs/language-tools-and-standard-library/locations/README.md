@@ -44,7 +44,7 @@ interfaces: DummyInterface
 
 where the `ini` file is:
 
-```jolie
+```text
 [Location]
 MyInput=socket://localhost:8000
 MyOutput=socket://100.100.100.100:8000
@@ -52,7 +52,7 @@ MyOutput=socket://100.100.100.100:8000
 
 Note that the `<variable path>` take the following forms:
 
-```jolie
+```text
 /Location/MyInput
 /Location/MyOutput
 ```
@@ -79,7 +79,7 @@ interfaces: DummyInterface
 
 where the `json` file is:
 
-```jolie
+```json
 {
   "MyInput": {
     "location":"socket://localhost:8000"
@@ -92,7 +92,7 @@ where the `json` file is:
 
 Note that the `<variable path>` take the following forms:
 
-```jolie
+```text
 MyInput.location
 MyOutput.location
 ```

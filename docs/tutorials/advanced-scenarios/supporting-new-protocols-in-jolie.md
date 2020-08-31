@@ -127,7 +127,7 @@ We can now check that the new protocol \(although implementing the same behaviou
 
 To do so, navigate to the directory of `mysodep`, where the `pom.xml` file is. From here, run
 
-```jolie
+```text
 mvn install
 ```
 
@@ -141,7 +141,7 @@ NOTE! To recompile the entire Jolie project, integrate your extension into the m
 
 Now that the implementation of `mysodep` is ready and compiled, we can use it in Jolie programs. As an example, we use the new protocol `mysodep` in the programs below \(a client and a server\).
 
-```java
+```jolie
 include "console.iol"
 interface TwiceInterface {
     RequestResponse: twice( int )( int )

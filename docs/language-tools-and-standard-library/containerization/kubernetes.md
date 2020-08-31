@@ -40,7 +40,7 @@ The HOSTNAME environment variable is set by Kubernetes itself and it's printed o
 
 The Dockerfile needed to create a docker image of this microservice is the same seen in the Docker section:
 
-```jolie
+```dockerfile
 FROM jolielang/jolie
 EXPOSE 8000
 COPY helloservice.ol main.ol
@@ -49,7 +49,7 @@ CMD jolie main.ol
 
 Typing the following command in the console actually creates the image:
 
-```jolie
+```text
 docker build -t hello .
 ```
 
@@ -57,7 +57,7 @@ docker build -t hello .
 
 This image can now be wrapped in [**Pods**](https://kubernetes.io/docs/concepts/workloads/pods/pod/), the smallest deployable units of computing that can be created and managed in Kubernetes. A [**Deployment**](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) describes in a declarative way the desired state of a **ReplicaSet** having the purpose to maintain a stable set of replica Pods running at any given time:
 
-```jolie
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -84,13 +84,13 @@ spec:
 
 To create the Deployment save the text above in **jolie-k8s-deployment.yml** file and type this command:
 
-```jolie
+```text
 kubectl apply -f jolie-k8s-deployment.yml
 ```
 
 After a few seconds you can see your pods up and running using this command:
 
-```jolie
+```text
 kubectl get pods
 ```
 
@@ -98,19 +98,19 @@ kubectl get pods
 
 Now we have 2 running Pods, each one listening on port 8000, but with 2 issues: 1. they're reachable only from the internal Kubernetes cluster network; 2. they're ephemeral. As explained [here](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/), a [**Service**](https://kubernetes.io/docs/concepts/services-networking/service/) is needed to expose the application in the right way. Following the [Minikube tutorial](https://kubernetes.io/docs/tutorials/hello-minikube/#create-a-service), just type:
 
-```jolie
+```text
 kubectl expose deployment jolie-sample-deployment --type=LoadBalancer --port=8000
 ```
 
 to create such **Service**. The result can be verified with this command:
 
-```jolie
+```text
 kubectl get services
 ```
 
 and the output should be something like this:
 
-```jolie
+```text
 NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 jolie-sample-deployment   LoadBalancer   10.109.47.147   <pending>     8000:30095/TCP   13s
 kubernetes                ClusterIP      10.96.0.1       <none>        443/TCP
@@ -118,7 +118,7 @@ kubernetes                ClusterIP      10.96.0.1       <none>        443/TCP
 
 The last step is to make the **Service** visible from your host going through a "minikube service":
 
-```jolie
+```text
 minikube service jolie-sample-deployment
 |-----------|-------------------------|-------------|-----------------------------|
 | NAMESPACE |          NAME           | TARGET PORT |             URL             |
@@ -154,13 +154,13 @@ main {
 
 Each time you make a request typing:
 
-```jolie
+```text
 jolie client.ol
 ```
 
 your local  is hit and the **LoadBalancer** redirects the request to one of the 2 available **Pods** running the service. Printing out the HOSTNAME variable makes visible the load balancing, showing which **Pod** is serving the response:
 
-```jolie
+```text
 $ jolie client.ol 
 jolie-sample-deployment-655f8b759d-mq8cn:hello
 $ jolie client.ol 

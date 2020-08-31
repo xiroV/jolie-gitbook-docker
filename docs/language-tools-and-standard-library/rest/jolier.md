@@ -2,7 +2,7 @@
 
 `jolier` is a tool distributed with jolie which permits to easily deploy a jolie microservice as a REST service. jolier requires three parameters to work together with two other optional parameters. Morevoer, it requires a mapping file called _rest\_template.json_ to be read at the boot for creating the mapping between the rest calls and the target operations. If you type the command in a shell without any argument, the following message will be prompt to the console:
 
-```jolie
+```text
 Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug]
 ```
 
@@ -18,7 +18,7 @@ The required parameters are:
 
 `jolier` is also able to publish your REST service using Https protocol by using the ssl command parameters
 
-```jolie
+```text
 Usage: jolier <service_filename> <input_port> <router_host> [-easyInterface] [-debug] [-keyStore] [filePath] [-keyStorePassword] [password] [-trustStore] [filename] [-trustStorePassword] [password] [-sslProtocol] [ [protocol](https://github.com/jolie/docs/tree/master/protocols/ssl) ]
 ```
 
@@ -36,7 +36,7 @@ To generate the ssl certificate you can use the [keytool](https://docs.oracle.co
 
 The mapping of the rest templates is defined within file `rest_templates.json`. It is a json file structured as key value map, where the key reports the name of the target operation whereas the value reports the related call information to be used in the rest call. Here we presen an example of a key value pair:
 
-```jolie
+```json
 {
     "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}"
 }
@@ -50,7 +50,7 @@ It is worth noting that when we define a rest mapping, some restrictions to the 
 
 **NOTE**: the public URL where _jester_ will serve the request is composed as it follows:
 
-```jolie
+```text
 http://<router_host>/<template>|<operation_name>
 ```
 
@@ -90,7 +90,7 @@ At this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_j
 
 The mapping file is defined as it follows where the operation `getOrders` is mapped on a specific url, whereas the others are mapped without specifying any template.
 
-```jolie
+```json
 {
     "getOrders":"method=get, template=/orders/{userId}?maxItems={maxItems}",
     "getOrdersByItem":"method=post",
@@ -101,13 +101,13 @@ The mapping file is defined as it follows where the operation `getOrders` is map
 
 It is sufficient to run the following command for deploying the jolie service `demo.ol` as a rest service:
 
-```jolie
+```text
 jolier demo.ol DEMO localhost:8000
 ```
 
 Once run, it is possible to try to invoke it using a common tool for sending REST messages. In particular it is possible to make a simple test invoking the `getOrders` by simply using a web browser. Put the following url in your web browser and look at the result:
 
-```jolie
+```text
 http://localhost:8000/orders/myuser?maxItems=0
 ```
 

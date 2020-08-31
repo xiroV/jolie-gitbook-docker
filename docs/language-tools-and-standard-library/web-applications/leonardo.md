@@ -20,7 +20,7 @@ Then, pointing the browser at URL `http://localhost:8000/index` we can see the w
 
 Leonardo comes with a `config.iol` file, where are stored some constants for basic configuration. The content of the default `config.iol` file is shown below:
 
-```jolie
+```text
 constants {
       // The location for reaching the Leonardo web server
       Location_Leonardo = "socket://localhost:8000/",
@@ -127,7 +127,7 @@ For the sake of brevity, we are not showing the boilerplate for building the HTM
 
 Once downloaded and unpacked, we can launch Leonardo and navigate to address `http://localhost:8000/`. Inside the `www` directory there are a `index.html` with a form containing three text fields - text1, text2, and text3. Submitting the request, by pressing the submit button, the event is intercepted by the JavaScript code shown below:
 
-```jolie
+```javascript
 $( document ).ready( function() {
   $( "#lengthButton" ).click( function() {
     Jolie.call(
@@ -154,7 +154,7 @@ Jolie supports Google Web Toolkit too by means of the `jolie-gwt.jar` library st
 
 The module comes with support classes for invoking operations published by the service of Leonardo which is serving the GWT application. In our case, we can easily call the `length` operation with the following code:
 
-```jolie
+```javascript
 Value request = new Value();
 request.getNewChild( "item" ).setValue( "Hello" );
 request.getNewChild( "item" ).setValue( "World!" );

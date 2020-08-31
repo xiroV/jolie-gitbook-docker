@@ -6,13 +6,13 @@ At the present, a complete step by step debugger is not available. Neverthless a
 
 A Jolie program can be easily traced enabling this feature in the command line with the parameter `--trace`. As an example, let us consider the _helloworld_ program explained [here](https://jolielang.gitbook.io/docs/tutorials/getting-started/hello_world). If you need to enable the tracer just run it using the following command line:
 
-```jolie
+```text
 jolie --trace myFirstJolieService.ol
 ```
 
 As a result, in the console, you should see the following lines:
 
-```jolie
+```text
 [myFirstJolieService.ol]     1.    ^ LOAD    Java Service Loader            joliex.io.ConsoleService
 <yourpath>/myFirstJolieService.ol:52.    << SR    println@Console            SENDING    MSG_ID:1
                         Value: = Hello, world! : string
@@ -30,7 +30,7 @@ it reports all the actions performed by the program. In the specific case it jus
 
 When the Jolie program has a lot of lines of code it could be quite difficult to analyze a trace reported into the console. In this case it is possible to use a web tool which make the navigation of the traces more easy. In order to enable it, it is necessary to save the traces into a file instead of printing them in the console. In order to do this, just specify the parameter `file` after the term `--trace` as in the following example:
 
-```jolie
+```text
 jolie --trace file myFirstJolieService.ol
 ```
 
@@ -44,7 +44,7 @@ By default `jolietraceviewer` runs on port 8000 but it is possible to change it 
 
 By default the tracer just traces everything both communication and computation actions. It is possible to restricts the tracing only to communication actions or computation actions. Use the parameter `---traceLevel [ALL|COMP|COMM]` for specifying the level. As an example let us consider the following:
 
-```jolie
+```text
 jolie --trace file --traceLevel comm myFirstJolieService.ol
 ```
 

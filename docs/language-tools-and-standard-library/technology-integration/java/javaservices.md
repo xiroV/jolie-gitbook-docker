@@ -14,7 +14,7 @@ Each public method of the Java Service is an input operation invokable by the em
 
 Let us write our own `MyConsole` Java service that offers a `println` request-response operation. `println` is a public method of `MyConsole` class that takes a string as request and prints it at console.
 
-```jolie
+```java
 package example;
 import jolie.runtime.JavaService;
 
@@ -61,7 +61,7 @@ To practice on request-response operations between embedded and embedder, let us
 
 We use the previously written Java Service `MyConsole` to print the result and show how to embed multiple classes.
 
-```jolie
+```java
 package example;
 
 import jolie.runtime.JavaService;
@@ -171,7 +171,7 @@ main
 
 The embedder acts as a bridge between two embedded Java Services, `MyJavaExample` which requests a `split` operation and, `Splitter` which implements it.
 
-```jolie
+```java
 package example;
 
 import jolie.runtime.JavaService;
@@ -247,7 +247,7 @@ Before continuing with the development of a JavaService keep in mind that there 
 
 If you use Maven it is very easy to import the Jolie dependency into your project, just add the following dependency into your `pom.xml` file:
 
-```jolie
+```xml
 <dependency>
     <groupId>jolie</groupId>
     <artifactId>jolie</artifactId>
@@ -280,7 +280,7 @@ Before writing the actual code of the JavaService it is important to create the 
 
 Here we present the code of our first JavaService which simply prints out on the console a message received from an invoker and then reply with the message `I am your father`.
 
-```jolie
+```java
 package org.jolie.example;
 
 import Jolie.runtime.JavaService;
@@ -529,7 +529,7 @@ In this section we deepen the usage of the class `Value` which allows for the ma
 
 First of all, we need to create a Value in Java as we would do in Jolie. The following Java code creates a Value named `v`.
 
-```jolie
+```java
 Value v = Value.create();
 ```
 
@@ -537,13 +537,13 @@ Value v = Value.create();
 
 In each Jolie tree, a node is a vector. To access/get the vector elements of a node, you can use the method `getChildren( String subnodeName )` which returns the corresponding `ValueVector` of the subnode `subnondeName`. In the following example we get all the vector elements of the subnode `subnode1`.
 
-```jolie
+```java
 ValueVector vVector = v.getChildren("subnode1");
 ```
 
 All the items of a ValueVector are Value objects. To access the Value element at index _i_ it is possible to use the method `get( int index )`. In the following example we access the third element of the subnode `subnode1` where 0 is the index of the first element.
 
-```jolie
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 ```
@@ -552,7 +552,7 @@ Value thirdElement = vVector.get( 2 );
 
 It is possible to use the method `setValue( ... )` for setting the value content of an element as in the following example:
 
-```jolie
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
@@ -571,7 +571,7 @@ Once accessed a vector element \(a value in general\), it is possible to get its
 
 In the following example we suppose to print out the content of the third element of the subnode `subnode1` supposing it is a string.
 
-```jolie
+```java
 ValueVector vVector = v.getChildren("subnode1");
 Value thirdElement = vVector.get( 2 );
 thirdElement.setValue("Millennium Falcon");
@@ -586,7 +586,7 @@ A JavaService can be also programmed to call an operation of the embedder. A typ
 
 This can be done with the method `sendMessage` of the class `JavaService`. As an example, we extend the previous JavaService by introducing a new asynchronous method called `AsynchHelloWorld` which receives a request with the same message of method `HelloWorld` and a field `sleep` which specifies the number of millisecond to wait before sending the reply. When Such a time-out has been introduced just for simulating a delay in the response. When the sleeping time is finished the method calls back the Jolie service on its operation `reply`.
 
-```jolie
+```java
 package org.jolie.example;
 
 import Jolie.net.CommMessage;
@@ -698,7 +698,7 @@ Each public method programmed within a JavaService must be considered as an inpu
 
 So far, we have exploited only OneWay operations for making interactions between the JavaService and the embedder. Now, we present how to exploit also RequestResponse operations. In the example below there are both a RequestResponse invocation from the JavaService to the embedder and a RequestResponse invocation from the embedder to the JavaService. The Java code follows:
 
-```jolie
+```java
 package org.jolie.example;
 import Jolie.net.CommChannel;
 import Jolie.net.CommMessage;
@@ -734,7 +734,7 @@ Faults are very important for defining a correct communication protocol between 
 
 Let us consider the _FirstJavaService_ example where we call the method `HelloWorld` of the JavaService. In particular, let us modify the Java code to reply with a fault in case the incoming message is wrong.
 
-```jolie
+```java
 public Value HelloWorld( Value request ) throws FaultException {
         String message = request.getFirstChild( "message" ).strValue();
         System.out.println( message );
@@ -831,7 +831,7 @@ if ( response.isFault() ) {
 
 So far, we have discussed the possibility to statically embed a JavaService. In this case the JavaService is shared among all the sessions created by the embedder. In some cases, it could be particularly suitable to embed an instance of JavaService for each running session of the embedder. Such a task can be fulfilled by exploiting the dynamic embedding functionality supplied by the `Runtime` of Jolie. In the following example we present the Java code of a JavaService which simply returns the value of a counter that is increased each time it is invoked on its method `start`.
 
-```jolie
+```java
 public class FourthJavaService extends JavaService {
     private int counter;
 
@@ -881,13 +881,13 @@ main {
 
 if we run a client that calls the service ten times as in the following code snippet:
 
-```jolie
+```text
 for( i = 0, i
 ```
 
 we obtain:
 
-```jolie
+```text
 Received counter 1
 Received counter 2
 Received counter 3
@@ -942,7 +942,7 @@ Note that we included `runtime.iol` to exploit `loadEmbeddedService@Runtime` ope
 
 Now, if we run the same client as in the example before, we obtain the following result:
 
-```jolie
+```text
 Received counter 1
 Received counter 1
 Received counter 1

@@ -17,13 +17,13 @@ There are two possible ways for generating the Java client starting from an outp
 
 The tool `jolie2java` is distributed together with the jolie engine. If you have already installed jolie you can run it in a simple way just typing the following command on a console:
 
-```jolie
+```text
 jolie2java --help
 ```
 
 You will see the following message on the console:
 
-```jolie
+```text
 Usage: jolie2java --format [java|gwt] --packageName package_namespace [--targetPort outputPort_to_be_encoded] [ --outputDirectory outputDirectory ] [--buildXml true|false] [--addSource true|false] file.ol
 ```
 
@@ -75,13 +75,13 @@ It is worth noting that the minimal definition we require in order to generate a
 
 Download in a folder both the `main.ol` and the `ForecastInterface.iol` file and run the following command from the same folder.
 
-```jolie
+```text
 jolie2java --packageName com.test.jolie client.ol
 ```
 
 As a result you will find a folder called `generated` whose content is:
 
-```jolie
+```text
 -- build.xml
 -- com
 ----| 
@@ -118,7 +118,7 @@ Files `Controller.java` and `JolieClient.java` actually implement the client for
 
 **Structured types** are converted by introducing inner classes inside the main one. For example, the type `GetTemperatureRequest` contains a subnode `place` which is mapped with an internal class called `placeType` as it is shown below where we report the first lines of the `GetTemperatureRequest.java`.
 
-```jolie
+```java
 public class GetTemperatureRequest implements Jolie2JavaInterface {
     public class placeType {
         private String latittude;
@@ -143,7 +143,7 @@ It is possible to retrieve all of them in the installation folder of Jolie. In p
 
 Alternatively, if you are confindent with [ant](https://ant.apache.org/) you can directly compile a distributable jar by exploiting the generated file `build.xml`. In this case it is sufficient to run the following command on the console from the same folder where the file `build.xml` is:
 
-```jolie
+```text
 ant dist
 ```
 
@@ -165,7 +165,7 @@ Let us now to show how to use the generated client into a Java project. First of
 
 In the following we show the code necessary to invoke the Jolie service of the example presented above. Here we assume that such a service is running on localhost at port 8000.
 
-```jolie
+```java
 import com.test.jolie.ForecastImpl;
 import com.test.jolie.JolieClient;
 import com.test.jolie.types.GetTemperatureRequest;
@@ -204,7 +204,7 @@ public class JavaApplication
 
 For those who are using [maven](https://maven.apache.org/) for managing their Java projecs, it is possible to use `jolie2java` within a specific maven plugin: `jolie2java-maven-plugin`. Just add the following lines to the pom of your project and the `jolie2java` tool can be used within the maven Lifecycle:
 
-```jolie
+```xml
 <!--dependencies-->
 <dependency>
   <groupId>jolie</groupId>

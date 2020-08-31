@@ -6,7 +6,7 @@
 
 The tool can be used as it follows:
 
-```jolie
+```text
 Usage: jolie2openapi <service_filename> <input_port> <router_host> <output_folder> [easy_interface true|false]
 ```
 
@@ -24,7 +24,7 @@ As it happens for the tool [jolier](jolier.md), also the tool `jolie2openapi` re
 
 As an example, let us consider the service demo at this [link](https://github.com/jolie/examples/tree/master/05_other_tools/03_jolier). It is sufficient to run the following command for producing the openapi specification related to interface `DemoInterface`.
 
-```jolie
+```text
 jolie2openapi demo.ol DEMO localhost:8000 .
 ```
 

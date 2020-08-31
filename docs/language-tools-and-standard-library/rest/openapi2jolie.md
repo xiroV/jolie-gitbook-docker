@@ -4,7 +4,7 @@
 
 This tool generates a Jolie client starting from an openapi 2.0 definition. The generated client can be embedded or exposed as a service to be invoked by other jolie services using sodep protocol. The usage of the tool follows:
 
-```jolie
+```text
 Usage: openapi2jolie <url|filepath> <service_name> <output_folder> <protocol http|https>
 ```
 
@@ -24,7 +24,7 @@ As a result the tool generates two files:
 
 In order to show how the tool `openapi2jolie` works, let us try to generate a client for the PetStore example released by the Swagger community which can be found [here](https://petstore.swagger.io/v2/swagger.json). Run the `openapi2jolie` tool as it follows:
 
-```jolie
+```text
 openapi2jolie https://petstore.swagger.io/v2/swagger.json SwaggerPetStore . https
 ```
 

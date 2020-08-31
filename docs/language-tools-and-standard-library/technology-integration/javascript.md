@@ -4,7 +4,7 @@ Embedding a JavaScript Service enables to use both the JavaScript language and J
 
 Let us rewrite the [_twice_ service example](https://github.com/jolie/docs/tree/f2682237d6cab2ca909d857f22b3e964ae8d11d8/technology-integration/getting-started/set_execution_modality/README.md) as a JavaScript embedded service.
 
-```jolie
+```javascript
 importClass( java.lang.System );
 importClass( java.lang.Integer );
 
