@@ -18,11 +18,13 @@ RUN mkdir -p /home/nginx/jolie-docs
 WORKDIR /home/nginx/jolie-docs
 COPY docs/ ./
 COPY gitbook/ ./
+RUN npm update
 RUN npm install -g gitbook-cli
 RUN npm install mv
 RUN npm install gitbook-plugin-highlight-jolie
 RUN npm install gitbook-plugin-logo
 RUN npm install gitbook-plugin-collapsible-chapters
+COPY overrides/ /
 RUN gitbook init && \
     gitbook install && \
     gitbook build
