@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
 :root {
   --purple-color: #873077;
 }
 
+.book.font-family-1 {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
 div {
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;
+}
+
+.book-summary {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+li.chapter a {
+    font-weight: 400;
 }
 
 .book-summary ul.summary li a, .book-summary ul.summary li span {
@@ -13,10 +28,9 @@ div {
     border-bottom: none;
     color: #364149;
     background: 0 0;
-    text-overflow: ellipsis;
     font-size: 1.5rem;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: normal;
     position: relative;
 }
 
@@ -33,6 +47,10 @@ div {
     color: #aaaaaa;
     font-weight: 700;
     font-size: 0.8em;
+}
+
+.markdown-section * {
+    font-size: 1.8rem;
 }
 
 .markdown-section a {
